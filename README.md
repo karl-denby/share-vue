@@ -1,4 +1,4 @@
-# whatday
+# ShareListing
 
 ## Project setup
 ```

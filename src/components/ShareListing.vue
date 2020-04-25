@@ -1,14 +1,16 @@
 <template>
-  <div class="day">
-    <h1>{{ day }}</h1>
+  <div class="share">
+    <h1>{{ share.company_name }}</h1>
+    <h2>{{ share.market }}</h2>
+    <h1>{{ share.share }} {{ share.price }} {{ share.price_change }}</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'WhatDayIsIt',
+  name: 'ShareListing',
   props: {
-    day: String
+    share: null
   }
 }
 </script>

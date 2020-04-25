@@ -1,33 +1,34 @@
 <template>
   <div id="app">
-    <WhatDayIsIt v-bind:day=day />
+    <ShareListing v-bind:share=share />
   </div>
 </template>
 
 <script>
-import WhatDayIsIt from './components/WhatDayIsIt.vue'
+import ShareListing from './components/ShareListing.vue'
 
 export default {
   name: 'App',
   components: {
-    WhatDayIsIt
+    ShareListing
   },
   data () {
     return {
-      day: null
+      share: {}
     }
   },
   mounted () {
-    this.getDay();
+    this.getShareData()
   },
   methods: {
-    async getDay() {
-      const api_url ="https://api.karldenby.com/dayofweek";
+    async getShareData() {
+      const api_url ="https://api.karldenby.com/shares/fake";
       console.log(`Using the url: ${api_url}`)
       const res = await fetch(api_url)
-      const data = await res.json();
-      console.log(`Data returned is ${data.day}`)
-      this.day = data.day;
+      const share = await res.json();
+      console.log(`Data returned is ${share}`)
+      this.share = share;
+      setTimeout(this.getShareData, 60000)
     }
   }
 }
